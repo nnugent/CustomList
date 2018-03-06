@@ -17,5 +17,10 @@ namespace CustomList
             age = a;
             gender = g;
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
