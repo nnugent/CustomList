@@ -70,6 +70,10 @@ namespace CustomList
                     }
                 }
             }
+            else
+            {
+                return false;
+            }
             return true;
         }
 

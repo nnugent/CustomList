@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace CustomListTests
 {
     [TestClass]
-    class ZipperTests
+    public class ZipperTests
     {
         [TestMethod]
         public void CustomList_ZipperTestWithInt_zipper()
