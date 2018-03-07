@@ -135,7 +135,13 @@ namespace CustomList
 
         public CustomList<T> Zipper(CustomList<T> list)
         {
-            return list;
+            CustomList<T> newArray = new CustomList<T>();
+            for (int index = 0; index < list.Count || index < count; index++)
+            {
+                if (index < count) newArray.Add(mainArray[index]);
+                if (index < list.Count) newArray.Add(list[index]);
+            }
+            return newArray;
         }
 
         public T this[int index]
