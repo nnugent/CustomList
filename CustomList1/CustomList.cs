@@ -129,6 +129,11 @@ namespace CustomList
             return listOne;
         }
 
+        public CustomList<T> Zipper(CustomList<T> list)
+        {
+            return list;
+        }
+
         public T this[int index]
         {
             get

@@ -27,6 +27,10 @@ namespace CustomList
             }
             return false;
         }
+        public override int GetHashCode()
+        {
+            return this.name.GetHashCode();
+        }
 
         public override string ToString()
         {
