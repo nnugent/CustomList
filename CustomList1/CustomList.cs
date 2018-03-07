@@ -57,6 +57,22 @@ namespace CustomList
             throw new NotImplementedException();
         }
 
+        public override bool Equals(object obj)
+        {
+            CustomList<T> list = obj as CustomList<T>;
+            if (count.Equals(list.Count))
+            {
+                for(int index = 0; index < count; index++)
+                {
+                    if (!list[index].Equals(mainArray[index]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         public bool Remove(T value, int start = 0)
         {
             bool found = false;
@@ -93,6 +109,24 @@ namespace CustomList
                 }
             }
             return toString;
+        }
+
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            for(int index = 0; index < listTwo.Count; index++)
+            {
+                listOne.Add(listTwo[index]);
+            }
+            return listOne;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            for (int index = 0; index < listTwo.Count; index++)
+            {
+                listOne.Remove(listTwo[index]);
+            }
+            return listOne;
         }
 
         public T this[int index]

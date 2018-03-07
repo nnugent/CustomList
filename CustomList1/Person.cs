@@ -18,9 +18,27 @@ namespace CustomList
             gender = g;
         }
 
+        public override bool Equals(object obj)
+        {
+            Person person = obj as Person;
+            if (name.Equals(person.Name))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public override string ToString()
         {
             return name;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
         }
     }
 }
