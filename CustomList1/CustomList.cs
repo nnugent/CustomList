@@ -36,6 +36,27 @@ namespace CustomList
             count++;
         }
 
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int index = 0; index < count; index++)
+            {
+                yield return mainArray[index];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(T value, int start = 0)
         {
             bool found = false;
@@ -57,17 +78,21 @@ namespace CustomList
             return found;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public override string ToString()
         {
-            for(int index = 0; index < count; index++)
+            string toString = "";
+            for (int index = 0; index < count; index++)
             {
-                yield return mainArray[index];
+                if (index > 0)
+                {
+                    toString += ", " + mainArray[index].ToString();
+                }
+                else
+                {
+                    toString += mainArray[index].ToString();
+                }
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return toString;
         }
 
         public T this[int index]
@@ -82,14 +107,6 @@ namespace CustomList
                 {
                     return mainArray[index];
                 }
-            }
-        }
-
-        public int Count
-        {
-            get
-            {
-                return count;
             }
         }
     }
